@@ -13,4 +13,5 @@ You will then be prompted to enter the number of dice to roll.
 > Note: If the numbers are large then a confirmation will be requested. Type "yes" and hit enter to continue.
 
 The program should then iterate through each roll up to the number of rolls selected, inclusive.
+> Tip: Rolling the traditional two six-sided dice (aka, 2d6) will output an ASCII image of the roll as well.
 > Note: More options will be added soon, such as for calculating average/mean rolls and more.
