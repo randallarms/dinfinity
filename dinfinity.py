@@ -25,9 +25,9 @@ def int_check(n):
     except ValueError:
         print("\nInput number must be an integer. ")
         exit()
-        
-# Create the 2d6 roll ASCII image
-def d_img(r1, r2):
+    
+# Create the roll ASCII image
+def d_img(rolls):
     roller = {
         1: ["|       |","|   o   |","|       |"],
         2: ["|    o  |","|       |","|  o    |"],
@@ -36,12 +36,18 @@ def d_img(r1, r2):
         5: ["| o   o |","|   o   |","| o   o |"],
         6: ["| o   o |","| o   o |","| o   o |"]
     }
-    d1 = roller.get(r1, ["|       |","\n|       |","\n|       |"])
-    d2 = roller.get(r2, ["|       |","\n|       |","\n|       |"])
-    d_img_str = "\n---------   ---------\n"
+    d_img_str = "\n"
+    for dice in range(len(rolls)):
+        d_img_str += "---------" + "   "
+    d_img_str += "\n"
     for line in range(3):
-        d_img_str += d1[line] + "   " + d2[line] + "\n"
-    d_img_str += "---------   ---------\n"
+        for roll in rolls:
+            d = roller.get(roll, ["|       |","\n|       |","\n|       |"])
+            d_img_str += d[line] + "   "
+        d_img_str += "\n"
+    for dice in range(len(rolls)):
+        d_img_str += "---------" + "   "
+    d_img_str += "\n"
     return d_img_str
 
 # Input number of sides on each die
@@ -71,6 +77,6 @@ for roll in range(1, d_int+1):
     rolls.append(result)
     print("Roll #" + str(roll) + ": " + str(result))
     
-# If rolling 2d6, then add ASCII image as well
-if d_int == 2 and s_int == 6:
-    print(d_img(rolls[0], rolls[1]))
+# If rolling d6, then add ASCII image as well
+if s_int == 6:
+    print(d_img(rolls))
