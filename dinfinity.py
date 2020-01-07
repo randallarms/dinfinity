@@ -72,10 +72,14 @@ if s_int > 100 or d_int > 100:
 
 # Iterate through the integers and print results
 print("\nRolling... \n")
+total = 0
 for roll in range(1, d_int+1):
     result = randint(1, s_int)
     rolls.append(result)
+    total += result
     print("Roll #" + str(roll) + ": " + str(result))
+
+print("\nTOTAL: " + str(total))
     
 # If rolling d6, then add ASCII image as well
 if s_int == 6:
