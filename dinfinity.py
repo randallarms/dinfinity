@@ -94,7 +94,7 @@ while r_in not in exiters:
         print("\nTOTAL: " + str(total))
             
         # If rolling d6, then add ASCII image as well
-        if s_int == 6:
+        if s_int == 6 and d_int == 2:
             print(d_img(rolls))
             
     print("\nWould you like to roll again? (y/n) ")
